@@ -50,7 +50,7 @@ class KeyBundle(BaseModel):
             return one_time_pre_keys
 
 
-class DeviceKeys(BaseModel):
+class DeviceKeyBundle(BaseModel):
     """Представление ключей одного устройства для ответа клиенту.
     Возвращается, когда другой пользователь запрашивает ключи для установления сессии.
 
@@ -69,7 +69,7 @@ class DeviceKeys(BaseModel):
     key_timestamp: int = Field(default_factory=current_timestamp)
 
 
-class UserKeys(BaseModel):
+class UserDevices(BaseModel):
     """Полный пакет ключей всех устройств пользователя."""
     user_id: UUID
-    devices: list[DeviceKeys]
+    devices: list[DeviceKeyBundle]

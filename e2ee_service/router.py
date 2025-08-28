@@ -17,3 +17,13 @@ async def upload_keys(
         device_id: str,
         key_bundle: KeyBundle
 ) -> ...: ...
+
+
+@router.get(
+    path="/{user_id}",
+    status_code=status.HTTP_200_OK,
+    response_model=...,
+    summary="Используется пользователем для получения публичного ключа другого перед началом чата"
+)
+async def get_keys(user_id: UUID) -> ...:
+    ...
